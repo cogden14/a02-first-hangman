@@ -40,8 +40,8 @@ defmodule Hangman.Game do
     end
 
     def fill_letters(letters, word, guess) do
-        filler = Enum.map(word, fn x -> "_" | x != guess)
-
+        filler = for x <- word, x != guess, do: "_"
+        IO.puts "#{filler}"
         #union must insert only set values from filler, like a right join
         letters_new = letters
         |> Enum.join(filler)

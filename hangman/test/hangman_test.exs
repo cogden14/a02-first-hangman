@@ -2,16 +2,6 @@ defmodule HangmanTest do
   use ExUnit.Case
   doctest Hangman
 
-  defmodule TestStruct do
-  test_game = %Hangman.Game.State{
-        turns_left: 7,
-        status: :initializing,
-        word: "functional",
-        letters: "",
-        used: "",
-        last_guess: ""
-  }
-  end
   test "creates a game" do
     assert Hangman.new_game()
   end
@@ -39,7 +29,7 @@ defmodule HangmanTest do
   end
 
   test "check fill_letters properly working" do
-    letters = []
+    letters = ["_"]
     word = ["H","e","l","l","o"]
     char_to_fill = "l"
     assert Hangman.Game.fill_letters(letters, word, char_to_fill)
