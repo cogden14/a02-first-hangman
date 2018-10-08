@@ -21,13 +21,14 @@ defmodule Hangman.Game do
         }
     end
 
-    def tally(game) do
-        turns_left = turns_left,
-        status = status,
-        word = word,
-        letters = letters,
-        used = used,
-        last_guess = last_guess
+    def tally(game) do   
+        %{
+        t: ^turns_left,
+        g: game_state,
+        l: letters,
+        u: used,
+        lg: last_guess
+        }
     end
 
     def make_move(game, guess) do
