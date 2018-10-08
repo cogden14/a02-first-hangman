@@ -4,8 +4,8 @@ defmodule Hangman.Game do
         turns_left: 7,
         status: :initializing,
         word: "",
-        letters: "",
-        used: "",
+        letters: [],
+        used: [],
         last_guess: ""
     )
     end
@@ -15,8 +15,8 @@ defmodule Hangman.Game do
         turns_left: 7,
         status: :initializing,
         word: Dictionary.random_word(),
-        letters: "",
-        used: "",
+        letters: [],
+        used: [],
         last_guess: ""
         }
     end
@@ -40,7 +40,7 @@ defmodule Hangman.Game do
     end
 
     def fill_letters(letters, word, guess) do
-        filler = Enum.map(guess)
+        filler = Enum.map(word, fn x -> "_" | x != guess)
 
         #union must insert only set values from filler, like a right join
         letters_new = letters

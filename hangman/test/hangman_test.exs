@@ -30,6 +30,18 @@ defmodule HangmanTest do
 
   test "check has_changed() value" do
     letters = ["H","e","l","l","o"]
-    assert Hangman.Game.has_changed(letters, Enum.reverse(letters))
+    changed_result = Hangman.Game.has_changed(letters, Enum.reverse(letters))
+    IO.puts "Reversed letters changed: #{changed_result}"
+    same_result = Hangman.Game.has_changed(letters, letters)
+    IO.puts "Same letters changed: #{same_result}"
+    
+    assert changed_result
+  end
+
+  test "check fill_letters properly working" do
+    letters = []
+    word = ["H","e","l","l","o"]
+    char_to_fill = "l"
+    assert Hangman.Game.fill_letters(letters, word, char_to_fill)
   end
 end
