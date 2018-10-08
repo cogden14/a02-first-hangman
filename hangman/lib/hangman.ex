@@ -6,11 +6,6 @@ defmodule Hangman do
   @doc """
   Hello world.
 
-  ## Examples
-
-      iex> Hangman.hello()
-      :world
-
   """
   defdelegate new_game(), to: Hangman.Game
 
